@@ -21,9 +21,8 @@ ContaCorrente conta_2 = new()
 
 Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
 
-Util.PularLinhas();
+Util.PularLinhas(2);
 
-Console.WriteLine("");
 Console.WriteLine(conta_1.ToString());
 
 Util.PularLinhas();

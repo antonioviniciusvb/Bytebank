@@ -36,7 +36,20 @@ namespace bytebank
 
         public string Conta { get; set; }
 
-        public double Saldo { get; set; }
+
+        private double _saldo;
+        public double Saldo
+        {
+            get { return _saldo; }
+         
+            set
+            {
+                if (!(Util.EhMenorOuIgualZero(value)))
+                {
+                    _saldo = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Método para Saque 
