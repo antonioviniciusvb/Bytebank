@@ -44,7 +44,11 @@ namespace bytebank
          
             set
             {
-                if (!(Util.EhMenorOuIgualZero(value)))
+                if ((Util.EhMenorOuIgualZero(value)))
+                {
+                    _saldo = 0;
+                }
+                else
                 {
                     _saldo = value;
                 }

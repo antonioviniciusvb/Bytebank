@@ -16,7 +16,7 @@ ContaCorrente conta_2 = new()
     Agencia = 2314,
     NomeDaAgencia = "Flórida",
     Conta = "14526-x",
-    Saldo = 10142.33
+    Saldo = -10
 };
 
 Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
