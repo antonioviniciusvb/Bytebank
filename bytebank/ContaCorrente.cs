@@ -126,9 +126,10 @@
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Titular: {Titular}" + Environment.NewLine +
-                         $"Agência: {Agencia} - {NomeDaAgencia}, conta: {Conta}" + Environment.NewLine +
-                         $"Saldo: {Saldo:c}";
+            return $"****** Conta Corrente ******" + Environment.NewLine +
+                   $"Titular: {Titular}" + Environment.NewLine +
+                   $"Agência: {Agencia} - {NomeDaAgencia}, conta: {Conta}" + Environment.NewLine +
+                   $"Saldo: {Saldo:c}";
         }
 
         /// <summary>

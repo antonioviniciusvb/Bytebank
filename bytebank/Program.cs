@@ -22,12 +22,11 @@ Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
 
 Util.PularLinhas();
 
-Console.WriteLine("****** Conta Corrente ******");
+Console.WriteLine("");
 Console.WriteLine(contaCorrente.ToString());
 
 Util.PularLinhas();
 
-Console.WriteLine("****** Conta Corrente ******");
 Console.WriteLine(contaCorrente2.ToString());
 
 //Um exemplo usando o String.Format dentro da string interpolada
@@ -50,7 +49,6 @@ try
     contaCorrente.Sacar(valorDoSaque);
 
     //Log - Saque
-    Console.WriteLine("****** Conta Corrente ******");
     Console.WriteLine($"(-) Saque: {valorDoSaque:c}");
     Console.WriteLine(contaCorrente.ToString());
 
@@ -60,7 +58,6 @@ try
     contaCorrente.Depositar(valorDoDeposito);
 
     //Log - Depósito
-    Console.WriteLine("****** Conta Corrente ******");
     Console.WriteLine($"(+) Depósito: {valorDoDeposito:c}");
     Console.WriteLine(contaCorrente.ToString());
 
@@ -74,13 +71,11 @@ try
 
     Util.PularLinhas();
 
-    Console.WriteLine("****** Conta Corrente ******");
     Console.WriteLine($"(-) Transferencia: {valorDoDeposito:c}");
     Console.WriteLine(contaCorrente2.ToString());
 
     Util.PularLinhas();
 
-    Console.WriteLine("****** Conta Corrente ******");
     Console.WriteLine($"(+) Transferencia: {valorDoDeposito:c}");
     Console.WriteLine(contaCorrente.ToString());
 
