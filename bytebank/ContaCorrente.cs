@@ -1,4 +1,6 @@
-﻿namespace bytebank
+﻿using bytebank.Titular;
+
+namespace bytebank
 {
     public class ContaCorrente
     {
