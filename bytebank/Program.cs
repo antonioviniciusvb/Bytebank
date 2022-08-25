@@ -1,17 +1,18 @@
 ﻿using bytebank;
+using System.Linq.Expressions;
 
-ContaCorrente contaCorrente = new()
-{
-    Titular = "Antonio Vinicius",
+ContaCorrente conta_1 = new()
+{ 
+    Cliente = new(nome: "Antonio Vinicius", cpf: "999.999.999-14", profissao: "Desenvolvedor .NET"),
     Agencia = 2314,
     NomeDaAgencia = "Central",
     Conta = "58144-7",
     Saldo = 93.50
 };
 
-ContaCorrente contaCorrente2 = new()
+ContaCorrente conta_2 = new()
 {
-    Titular = "Iris",
+    Cliente = new (nome: "Iris", cpf: "555.555.555-47", profissao: "Desenvolvedor Java"),
     Agencia = 2314,
     NomeDaAgencia = "Flórida",
     Conta = "14526-x",
@@ -23,14 +24,14 @@ Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
 Util.PularLinhas();
 
 Console.WriteLine("");
-Console.WriteLine(contaCorrente.ToString());
+Console.WriteLine(conta_1.ToString());
 
 Util.PularLinhas();
 
-Console.WriteLine(contaCorrente2.ToString());
+Console.WriteLine(conta_2.ToString());
 
 //Um exemplo usando o String.Format dentro da string interpolada
-//Console.WriteLine($"Saldo: R$ {String.Format("{0:0.00}", contaCorrente2.Saldo)}");
+//Console.WriteLine($"Saldo: R$ {String.Format("{0:0.00}", conta_2.Saldo)}");
 
 
 
@@ -46,38 +47,38 @@ try
     Util.PularLinhas(2);
 
     //Saque
-    contaCorrente.Sacar(valorDoSaque);
+    conta_1.Sacar(valorDoSaque);
 
     //Log - Saque
     Console.WriteLine($"(-) Saque: {valorDoSaque:c}");
-    Console.WriteLine(contaCorrente.ToString());
+    Console.WriteLine(conta_1.ToString());
 
     Util.PularLinhas(2);
 
     //Depósito
-    contaCorrente.Depositar(valorDoDeposito);
+    conta_1.Depositar(valorDoDeposito);
 
     //Log - Depósito
     Console.WriteLine($"(+) Depósito: {valorDoDeposito:c}");
-    Console.WriteLine(contaCorrente.ToString());
+    Console.WriteLine(conta_1.ToString());
 
     Util.PularLinhas(2);
 
     //Transferencia - Conta 2 para Conta 1
-    contaCorrente2.Transferir(valorDaTransferencia, contaCorrente);
+    conta_2.Transferir(valorDaTransferencia, conta_1);
 
     //Log - Transferencia
-    Console.WriteLine($"(-/+) Transferencia: {valorDaTransferencia:c}  - De: {contaCorrente2.Titular} - Para: {contaCorrente.Titular}");
+    Console.WriteLine($"(-/+) Transferencia: {valorDaTransferencia:c}  - De: {conta_2.Cliente.Nome} - Para: {conta_1.Cliente.Nome}");
 
     Util.PularLinhas();
 
     Console.WriteLine($"(-) Transferencia: {valorDoDeposito:c}");
-    Console.WriteLine(contaCorrente2.ToString());
+    Console.WriteLine(conta_2.ToString());
 
     Util.PularLinhas();
 
     Console.WriteLine($"(+) Transferencia: {valorDoDeposito:c}");
-    Console.WriteLine(contaCorrente.ToString());
+    Console.WriteLine(conta_1.ToString());
 
 }
 catch (Exception ex)
