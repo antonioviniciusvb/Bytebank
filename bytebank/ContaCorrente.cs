@@ -1,13 +1,23 @@
-﻿namespace Bytebank
+﻿namespace bytebank
 {
     public class ContaCorrente
     {
-
+        /// <summary>
+        /// Cosntrutor padrão
+        /// </summary>
         public ContaCorrente()
         {
 
         }
 
+        /// <summary>
+        /// Sobrecarga de construtor
+        /// </summary>
+        /// <param name="titular"></param>
+        /// <param name="agencia"></param>
+        /// <param name="nomeDaAgencia"></param>
+        /// <param name="conta"></param>
+        /// <param name="saldo"></param>
         public ContaCorrente(string titular, int agencia, string nomeDaAgencia, string conta, double saldo)
         {
             this.Titular = titular;
@@ -70,7 +80,7 @@
                 throw new Exception($"Valor de {valorDeSaque:c} para Saque é maior que Saldo em Conta Corrente.");
 
             }
-            else if (EhMenorOuIgualZero(valorDeSaque))
+            else if (Util.EhMenorOuIgualZero(valorDeSaque))
             {
                 throw new Exception($"Valor de {valorDeSaque:c} para Saque é inválido.");
             }
@@ -78,7 +88,10 @@
             return true;
         }
 
-
+        /// <summary>
+        /// Método para exibir os valores dos campos 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"Titular: {Titular}" + Environment.NewLine +
@@ -94,7 +107,7 @@
         /// <exception cref="Exception"></exception>
         private bool ValidaDeposito(double valorDeDeposito)
         {
-            if (EhMenorOuIgualZero(valorDeDeposito))
+            if (Util.EhMenorOuIgualZero(valorDeDeposito))
             {
                 throw new Exception($"Valor de {valorDeDeposito:c} para Depósto é inválido.");
             }
@@ -102,14 +115,5 @@
             return true;
         }
 
-        /// <summary>
-        /// Método para retornar value <= 0
-        /// </summary>
-        /// <param name="valor"></param>
-        /// <returns></returns>
-        private bool EhMenorOuIgualZero(double valor)
-        {
-            return valor <= 0;
-        }
     }
 }
