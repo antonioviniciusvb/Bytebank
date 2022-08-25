@@ -40,10 +40,11 @@ Console.WriteLine(conta_2.ToString());
 //Valores para Saque e Depósito
 double valorDoSaque = 50.33;
 double valorDoDeposito = 14000;
-double valorDaTransferencia = 277337.52;
+double valorDaTransferencia = 4587.52;
 
 try
 {
+    #region Saque
     Util.PularLinhas(2);
 
     //Saque
@@ -53,6 +54,10 @@ try
     Console.WriteLine($"(-) Saque: {valorDoSaque:c}");
     Console.WriteLine(conta_1.ToString());
 
+    #endregion
+
+    #region Depósitos
+
     Util.PularLinhas(2);
 
     //Depósito
@@ -61,6 +66,10 @@ try
     //Log - Depósito
     Console.WriteLine($"(+) Depósito: {valorDoDeposito:c}");
     Console.WriteLine(conta_1.ToString());
+
+    #endregion
+
+    #region Transferências
 
     Util.PularLinhas(2);
 
@@ -72,13 +81,36 @@ try
 
     Util.PularLinhas();
 
-    Console.WriteLine($"(-) Transferencia: {valorDoDeposito:c}");
+    Console.WriteLine($"(-) Transferencia: {valorDaTransferencia:c}");
     Console.WriteLine(conta_2.ToString());
 
     Util.PularLinhas();
 
-    Console.WriteLine($"(+) Transferencia: {valorDoDeposito:c}");
+    Console.WriteLine($"(+) Transferencia: {valorDaTransferencia:c}");
     Console.WriteLine(conta_1.ToString());
+
+
+    valorDaTransferencia = 13198.78;
+
+    Util.PularLinhas();
+
+    //Transferencia - Conta 1 para Conta 2
+    conta_1.Transferir(valorDaTransferencia, conta_2);
+
+    //Log - Transferencia
+    Console.WriteLine($"(-/+) Transferencia: {valorDaTransferencia:c}  - De: {conta_1.Cliente.Nome} - Para: {conta_2.Cliente.Nome}");
+
+    Util.PularLinhas();
+
+    Console.WriteLine($"(-) Transferencia: {valorDaTransferencia:c}");
+    Console.WriteLine(conta_1.ToString());
+
+    Util.PularLinhas();
+
+    Console.WriteLine($"(+) Transferencia: {valorDaTransferencia:c}");
+    Console.WriteLine(conta_2.ToString());
+
+    #endregion
 
 }
 catch (Exception ex)
