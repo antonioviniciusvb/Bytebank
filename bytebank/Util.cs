@@ -13,7 +13,7 @@ namespace bytebank
         /// Método para pula linhas no console
         /// </summary>
         /// <param name="saltos"></param>
-        public static void PulaLinhas(int saltos = 1)
+        public static void PularLinhas(int saltos = 1)
         {
             if (saltos > 0)
             {

@@ -67,6 +67,38 @@
             return true;
         }
 
+        public bool Transferir(double valorDeTransferencia, ContaCorrente contaDestino)
+        {
+            if (ValidaTransferencia(valorDeTransferencia))
+            {
+                contaDestino.Saldo += valorDeTransferencia;
+                Saldo -= valorDeTransferencia;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Método para validar Transferencia de Saldo
+        /// </summary>
+        /// <param name="valorTransferencia"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        private bool ValidaTransferencia(double valorDeTransferencia)
+        {
+            if (Util.EhMenorOuIgualZero(valorDeTransferencia))
+            {
+                throw new Exception($"Valor de {valorDeTransferencia:c} para Tranferencia é inválido.");
+            }
+            else
+            if (valorDeTransferencia > Saldo)
+            {
+                throw new Exception($"Valor de {valorDeTransferencia:c} para Tranferencia é maior que Saldo em Conta Corrente.");
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// Método de validação de Saque
         /// </summary>

@@ -1,35 +1,38 @@
 ﻿using bytebank;
 
-ContaCorrente contaCorrente = new();
+ContaCorrente contaCorrente = new()
+{
+    Titular = "Antonio Vinicius",
+    Agencia = 2314,
+    NomeDaAgencia = "Central",
+    Conta = "58144-7",
+    Saldo = 93.50
+};
 
-contaCorrente.Titular = "Antonio Vinicius";
-contaCorrente.Agencia = 2314;
-contaCorrente.NomeDaAgencia = "Central";
-contaCorrente.Conta = "58144-7";
-contaCorrente.Saldo = 93.50;
-
-//ContaCorrente contaCorrente2 = new()
-//{
-//    Titular = "Ísis de Souza Veras",
-//    Agencia = 2314,
-//    NomeDaAgencia = "Flórida",
-//    Conta = "14526-x",
-//    Saldo = 10142.33
-//};
+ContaCorrente contaCorrente2 = new()
+{
+    Titular = "Iris",
+    Agencia = 2314,
+    NomeDaAgencia = "Flórida",
+    Conta = "14526-x",
+    Saldo = 10142.33
+};
 
 Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
 
-Util.PulaLinhas();
+Util.PularLinhas();
 
+Console.WriteLine("****** Conta Corrente ******");
 Console.WriteLine(contaCorrente.ToString());
 
-//Util.PulaLinhas();
+Util.PularLinhas();
 
-//Console.WriteLine(contaCorrente2.ToString());
+Console.WriteLine("****** Conta Corrente ******");
+Console.WriteLine(contaCorrente2.ToString());
 
 //Um exemplo usando o String.Format dentro da string interpolada
 //Console.WriteLine($"Saldo: R$ {String.Format("{0:0.00}", contaCorrente2.Saldo)}");
-Util.PulaLinhas(2);
+
 
 
 #region Testes
@@ -37,30 +40,54 @@ Util.PulaLinhas(2);
 //Valores para Saque e Depósito
 double valorDoSaque = 50.33;
 double valorDoDeposito = 14000;
+double valorDaTransferencia = 277337.52;
 
 try
 {
+    Util.PularLinhas(2);
+
     //Saque
     contaCorrente.Sacar(valorDoSaque);
 
+    //Log - Saque
+    Console.WriteLine("****** Conta Corrente ******");
     Console.WriteLine($"(-) Saque: {valorDoSaque:c}");
     Console.WriteLine(contaCorrente.ToString());
 
-    Util.PulaLinhas(2);
+    Util.PularLinhas(2);
 
     //Depósito
-    Console.WriteLine($"(+) Depósito: {valorDoDeposito:c}");
     contaCorrente.Depositar(valorDoDeposito);
+
+    //Log - Depósito
+    Console.WriteLine("****** Conta Corrente ******");
+    Console.WriteLine($"(+) Depósito: {valorDoDeposito:c}");
+    Console.WriteLine(contaCorrente.ToString());
+
+    Util.PularLinhas(2);
+
+    //Transferencia - Conta 2 para Conta 1
+    contaCorrente2.Transferir(valorDaTransferencia, contaCorrente);
+
+    //Log - Transferencia
+    Console.WriteLine($"(-/+) Transferencia: {valorDaTransferencia:c}  - De: {contaCorrente2.Titular} - Para: {contaCorrente.Titular}");
+
+    Util.PularLinhas();
+
+    Console.WriteLine("****** Conta Corrente ******");
+    Console.WriteLine($"(-) Transferencia: {valorDoDeposito:c}");
+    Console.WriteLine(contaCorrente2.ToString());
+
+    Util.PularLinhas();
+
+    Console.WriteLine("****** Conta Corrente ******");
+    Console.WriteLine($"(+) Transferencia: {valorDoDeposito:c}");
+    Console.WriteLine(contaCorrente.ToString());
+
 }
 catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
-}
-finally
-{
-    Util.PulaLinhas();
-    Console.WriteLine("****** Conta Corrente ******");
-    Console.WriteLine(contaCorrente.ToString());
 }
 
 #endregion
