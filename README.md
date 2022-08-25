@@ -2,5 +2,7 @@
 
 >> Em desenvolvimento 
 
-Implementação de projeto sobre o Curso Alura -- C#: Orientação a objetos. 
+Implementação de projeto.
+
+Curso Alura -- C#: Orientação a objetos. 
 
