@@ -8,13 +8,13 @@ namespace bytebank
 {
     public static class Util
     {
+
+        /// <summary>
+        /// Método para pula linhas no console
+        /// </summary>
+        /// <param name="saltos"></param>
         public static void PulaLinhas(int saltos = 1)
         {
-            for (int i = 0; i < 10; i++)
-            {
-
-            }
-
             if (saltos > 0)
             {
                 for (int i = 0; i < saltos; i++)
