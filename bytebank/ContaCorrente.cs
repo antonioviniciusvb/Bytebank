@@ -3,7 +3,7 @@
     public class ContaCorrente
     {
         /// <summary>
-        /// Cosntrutor padrão
+        /// Construtor padrão
         /// </summary>
         public ContaCorrente()
         {
@@ -18,16 +18,16 @@
         /// <param name="nomeDaAgencia"></param>
         /// <param name="conta"></param>
         /// <param name="saldo"></param>
-        public ContaCorrente(string titular, int agencia, string nomeDaAgencia, string conta, double saldo)
+        public ContaCorrente(Cliente titular, int agencia, string nomeDaAgencia, string conta, double saldo)
         {
-            this.Titular = titular;
-            this.Agencia = agencia;
-            this.NomeDaAgencia = nomeDaAgencia;
-            this.Conta = conta;
-            this.Saldo = saldo;
+            Cliente = titular;
+            Agencia = agencia;
+            NomeDaAgencia = nomeDaAgencia;
+            Conta = conta;
+            Saldo = saldo;
         }
 
-        public string Titular { get; set; }
+        public Cliente Cliente { get; set; }
         public int Agencia { get; set; }
 
         public string NomeDaAgencia { get; set; }
@@ -127,7 +127,7 @@
         public override string ToString()
         {
             return $"****** Conta Corrente ******" + Environment.NewLine +
-                   $"Titular: {Titular}" + Environment.NewLine +
+                   $"Titular: {Cliente.Nome}" + Environment.NewLine +
                    $"Agência: {Agencia} - {NomeDaAgencia}, conta: {Conta}" + Environment.NewLine +
                    $"Saldo: {Saldo:c}";
         }
