@@ -1,6 +1,6 @@
-﻿using Bytebank;
+﻿using bytebank;
 
-ContaCorrente contaCorrente = new ContaCorrente();
+ContaCorrente contaCorrente = new();
 
 contaCorrente.Titular = "Antonio Vinicius";
 contaCorrente.Agencia = 2314;
@@ -8,44 +8,49 @@ contaCorrente.NomeDaAgencia = "Central";
 contaCorrente.Conta = "58144-7";
 contaCorrente.Saldo = 93.50;
 
-ContaCorrente contaCorrente2 = new()
-{
-    Titular = "Ísis de Souza Veras",
-    Agencia = 2314,
-    NomeDaAgencia = "Flórida",
-    Conta = "14526-x",
-    Saldo = 10142.33
-};
+//ContaCorrente contaCorrente2 = new()
+//{
+//    Titular = "Ísis de Souza Veras",
+//    Agencia = 2314,
+//    NomeDaAgencia = "Flórida",
+//    Conta = "14526-x",
+//    Saldo = 10142.33
+//};
 
 Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
-Console.WriteLine("************");
-Console.WriteLine($"Titular: {contaCorrente.Titular}");
-Console.WriteLine($"Agência: {contaCorrente.Agencia} - {contaCorrente.NomeDaAgencia}, conta: {contaCorrente.Conta}");
-Console.WriteLine($"Saldo: {contaCorrente.Saldo:c}");
 
-Console.WriteLine("************");
-Console.WriteLine($"Titular: {contaCorrente2.Titular}");
-Console.WriteLine($"Agência: {contaCorrente2.Agencia} - {contaCorrente2.NomeDaAgencia}, conta: {contaCorrente2.Conta}");
-Console.WriteLine($"Saldo: {contaCorrente2.Saldo:c}");
+Util.PulaLinhas();
+
+Console.WriteLine(contaCorrente.ToString());
+
+//Util.PulaLinhas();
+
+//Console.WriteLine(contaCorrente2.ToString());
 
 //Um exemplo usando o String.Format dentro da string interpolada
 //Console.WriteLine($"Saldo: R$ {String.Format("{0:0.00}", contaCorrente2.Saldo)}");
+Util.PulaLinhas(2);
 
 
-//Efetuando Teste de  Saque 
-double valorDoSaque = 100;
+#region Testes
 
-Console.WriteLine();
-Console.WriteLine();
+//Valores para Saque e Depósito
+double valorDoSaque = 50.33;
+double valorDoDeposito = 14000;
 
 try
 {
-   var sacou = contaCorrente.Sacar(valorDoSaque);
+    //Saque
+    contaCorrente.Sacar(valorDoSaque);
 
-    if (sacou)
-    {
-        Console.WriteLine($"Foram sacados {valorDoSaque:c} do Titular: {contaCorrente.Titular}");
-    }
+    Console.WriteLine($"(-) Saque: {valorDoSaque:c}");
+    Console.WriteLine(contaCorrente.ToString());
+
+    Util.PulaLinhas(2);
+
+    //Depósito
+    Console.WriteLine($"(+) Depósito: {valorDoDeposito:c}");
+    contaCorrente.Depositar(valorDoDeposito);
 }
 catch (Exception ex)
 {
@@ -53,13 +58,11 @@ catch (Exception ex)
 }
 finally
 {
-
-    Console.WriteLine();
+    Util.PulaLinhas();
     Console.WriteLine("****** Conta Corrente ******");
     Console.WriteLine(contaCorrente.ToString());
-    //Console.WriteLine($"Titular: {contaCorrente.Titular}");
-    //Console.WriteLine($"Agência: {contaCorrente.Agencia} - {contaCorrente.NomeDaAgencia}, conta: {contaCorrente.Conta}");
-    //Console.WriteLine($"Saldo: {contaCorrente.Saldo:c}");
 }
+
+#endregion
 
 Console.ReadKey();
