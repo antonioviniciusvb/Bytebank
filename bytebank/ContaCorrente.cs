@@ -21,7 +21,7 @@ namespace bytebank
         /// <param name="nomeDaAgencia"></param>
         /// <param name="conta"></param>
         /// <param name="saldo"></param>
-        public ContaCorrente(Cliente titular, int agencia, string nomeDaAgencia, string conta, double saldo)
+        public ContaCorrente(Cliente titular, int agencia, string nomeDaAgencia, string conta)
         {
             TotalContas++;
             Cliente = titular;
