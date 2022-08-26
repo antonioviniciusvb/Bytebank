@@ -1,4 +1,5 @@
 ﻿using bytebank.Titular;
+using System.Text.RegularExpressions;
 
 namespace bytebank
 {
@@ -30,18 +31,35 @@ namespace bytebank
         }
 
         public Cliente Cliente { get; set; }
-        public int Agencia { get; set; }
+
+        public int Agencia {get; set; }
 
         public string NomeDaAgencia { get; set; }
 
-        public string Conta { get; set; }
+        private string _conta;
+        public string Conta
+        {
+            get { return _conta; }
+
+            set
+            {
+                if (Regex.IsMatch($"{value}", @"^\d{5}-[\da-zA-Z]$"))
+                {
+                    _conta = value;
+                }
+                else
+                {
+                    throw new Exception("Conta deve ter 5 dígitos, seguido de traço e 1 dígito, Exemplo: 12345-9");
+                }
+            }
+        }
 
 
         private double _saldo;
         public double Saldo
         {
             get { return _saldo; }
-         
+
             set
             {
                 if ((Util.EhMenorOuIgualZero(value)))
@@ -86,6 +104,12 @@ namespace bytebank
             return true;
         }
 
+        /// <summary>
+        /// Método para Transferir os valores de Saldo
+        /// </summary>
+        /// <param name="valorDeTransferencia"></param>
+        /// <param name="contaDestino"></param>
+        /// <returns></returns>
         public bool Transferir(double valorDeTransferencia, ContaCorrente contaDestino)
         {
             if (ValidaTransferencia(valorDeTransferencia))
