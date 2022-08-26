@@ -28,7 +28,6 @@ namespace bytebank
             Agencia = agencia;
             NomeDaAgencia = nomeDaAgencia;
             Conta = conta;
-            Saldo = saldo;
         }
 
         public static int TotalContas { get; private set; }
