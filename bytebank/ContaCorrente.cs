@@ -10,7 +10,7 @@ namespace bytebank
         /// </summary>
         public ContaCorrente()
         {
-
+            TotalContas++;
         }
 
         /// <summary>
@@ -23,12 +23,15 @@ namespace bytebank
         /// <param name="saldo"></param>
         public ContaCorrente(Cliente titular, int agencia, string nomeDaAgencia, string conta, double saldo)
         {
+            TotalContas++;
             Cliente = titular;
             Agencia = agencia;
             NomeDaAgencia = nomeDaAgencia;
             Conta = conta;
             Saldo = saldo;
         }
+
+        public static int TotalContas { get; set; }
 
         public Cliente Cliente { get; set; }
 
@@ -208,6 +211,8 @@ namespace bytebank
 
             return true;
         }
+
+        
 
     }
 }
