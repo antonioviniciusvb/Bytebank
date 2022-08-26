@@ -33,6 +33,16 @@ try
     //    Saldo = 40145.20
     //};
 
+    //Teste com conta inválida
+    //ContaCorrente conta_3 = new()
+    //{
+    //    Cliente = new(nome: "Carlos Tortelli", cpf: "533.222.000-82", profissao: "Desenvolvedor Python"),
+    //    Agencia = 4511425,
+    //    NomeDaAgencia = "Diadema",
+    //    Conta = "14306-v",
+    //    Saldo = 40145.20
+    //};
+
     Console.WriteLine("Boas Vindas ao seu banco, ByteBank!");
 
     Util.PularLinhas(2);
