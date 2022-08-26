@@ -132,6 +132,9 @@ try
 
     #endregion
 
+
+    Util.PularLinhas(2);
+    Console.WriteLine($"Total de Contas: {ContaCorrente.TotalContas}");
 }
 catch (Exception ex)
 {

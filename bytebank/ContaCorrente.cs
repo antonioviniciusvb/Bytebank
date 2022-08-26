@@ -31,7 +31,7 @@ namespace bytebank
             Saldo = saldo;
         }
 
-        public static int TotalContas { get; set; }
+        public static int TotalContas { get; private set; }
 
         public Cliente Cliente { get; set; }
 
