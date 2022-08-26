@@ -1,6 +1,6 @@
 # Bytebank
 
->> Em desenvolvimento 
+>> Finalizado
 
 Implementação de projeto.
 
