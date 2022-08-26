@@ -32,7 +32,24 @@ namespace bytebank
 
         public Cliente Cliente { get; set; }
 
-        public int Agencia {get; set; }
+        private int _agencia;
+        public int Agencia
+        {
+            get { return _agencia; }
+
+            set
+            {
+                if((Regex.IsMatch($"{value}", @"^\d{2,5}$")))
+                {
+
+                    _agencia = value;
+                }
+                else
+                {
+                    Console.WriteLine("Agencia deve ter entre 2 até 5 dígitos, Exemplo: 1254");
+                }
+            }
+        }
 
         public string NomeDaAgencia { get; set; }
 
@@ -43,13 +60,14 @@ namespace bytebank
 
             set
             {
-                if (Regex.IsMatch($"{value}", @"^\d{5}-[\da-zA-Z]$"))
+                if (Regex.IsMatch($"{value}", @"^\d{5}-[\dxX]$"))
                 {
                     _conta = value;
                 }
                 else
                 {
-                    throw new Exception("Conta deve ter 5 dígitos, seguido de traço e 1 dígito, Exemplo: 12345-9");
+                    _conta = String.Empty;
+                    Console.WriteLine("Conta deve ter 5 dígitos, seguido de traço e 1 dígito ou X, Exemplo: 12345-9");
                 }
             }
         }
